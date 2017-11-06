@@ -1,2 +1,2 @@
 web: webpack-dev-server
-api: nodemon server.js
+api: nodemon --inspect server.js

@@ -9,6 +9,9 @@ const router = express.Router();
 
 let port = process.env.API_PORT || 3001;
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -21,8 +24,19 @@ app.use((req, res, next) => {
 });
 
 router.get('/', (req, res) => {
-  res.json({message: 'API Initialized'});
+  res.json({ message: 'API Initialized' });
 });
+
+router.route('/trumpthat')
+  .get((req, res) => {
+    res.json({ message: 'hey hey' });
+  })
+  .post((req, res) => {
+    console.log(req.body);
+    let phrase = req.body.phrase;
+
+    return res.json({ message: phrase });
+  });
 
 app.use('/api', router);
 
