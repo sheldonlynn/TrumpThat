@@ -9,6 +9,8 @@ const router = express.Router();
 
 let port = process.env.API_PORT || 3001;
 
+const parseTweet = require('./server/parseTweet');
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -28,14 +30,11 @@ router.get('/', (req, res) => {
 });
 
 router.route('/trumpthat')
-  .get((req, res) => {
-    res.json({ message: 'hey hey' });
-  })
   .post((req, res) => {
-    console.log(req.body);
     let phrase = req.body.phrase;
+    let tweet = parseTweet.trumpThat(phrase);
 
-    return res.json({ message: phrase });
+    return res.json({ message: tweet });
   });
 
 app.use('/api', router);
