@@ -7,3 +7,24 @@ h1 {
   font-size: 3em;
   color: white;
 }
+
+#trump-gif {
+  //height: calc(100vh - 5em);
+  //width: auto
+}
+
+.input-box {
+  visibility: visible;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: auto auto;
+  opacity: 1;
+
+  transition: visibility 1s, opacity 1s;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}
