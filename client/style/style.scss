@@ -1,9 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);
+
 * {
   box-sizing: content-box;
 }
 
 body {
-  font-family: 'Lucida Sans Typewriter', 'Lucida Console', monaco, monospace;
+  font-family: 'Press start 2P', 'Lucida Sans Typewriter', 'Lucida Console', monaco, monospace;
   color: #fff;
   background: linear-gradient(-45deg, #002868, #002868, #BF0A30, #BF0A30);
   background-size: 400% 400%;
@@ -13,38 +15,76 @@ body {
   text-shadow: 0px 4px 13px rgba(0, 0, 0, 0.55);
 }
 
-.trump-tweet {
-  color: #fff;
-  font-size: 2em;
-  width: 50vw;
-  position: relative;
+.tweet-display {
+  position: fixed;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 60vh;
+  overflow: scroll;
+  .trump-tweet {
+    color: #fff;
+    font-size: 1.8em;
+    line-height: 1.5em;
+    width: 50vw;
+    position: relative;
+    margin-bottom: 20px;
+  }
 }
 
-.tweet-display {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button {
+  font-size: 1.4em;
+  margin-top: 20px;
+  color: black;
+  background: white;
+  text-shadow: none;
+  cursor: pointer;
+  transition: all 1s;
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 3em;
   color: white;
   position: fixed;
   top: 1%;
   left: 50%;
+  z-index: 5;
   transform: translateX(-50%);
 }
 
 .trump-head {
+  transition: all 2s;
+  z-index: 0;
   #trump-gif {
     height: calc(100vh - 5em);
     width: auto
   }
 }
 
+.trump-head.display {
+  position: fixed;
+  left: -5%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 2s;
+  #trump-gif {
+    height: auto;
+    width: 80vh;
+    transition: all 2s;
+  }
+}
+
 .input-box {
   position: fixed;
-  bottom: 5%;
+  bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
   visibility: visible;
@@ -57,10 +97,11 @@ h1 {
   transition: visibility 1s, opacity 1s;
 
   textarea {
+    font-family: 'Press start 2P', 'Lucida Sans Typewriter', 'Lucida Console', monaco, monospace;
+    font-size: 1em;
     height: 15vh;
     color: #fff;
     text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.55);
-    font-size: 1.5em;
     background: rgba(255, 255, 255, 0.4);
     line-height: 25px;
     padding: 20px 30px;
@@ -68,10 +109,7 @@ h1 {
     border: none;
     resize: none;
     outline: none;
-  }
-
-  .trump-button {
-    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 
@@ -133,4 +171,142 @@ h1 {
       100% { opacity:1; }
     }
   }
+}
+
+//************************************************
+
+@mixin step1( $width, $color ) {
+  box-shadow:
+      $width 0 $color,
+      -$width 0 $color,
+      0 (-$width) $color,
+      0 $width $color;
+  margin: $width auto;
+}
+/*@mixin step2( $width, $color, $bgcolor ) {
+  box-shadow:
+    $width 0 $bgcolor,
+    -$width 0 $bgcolor,
+    0 (-$width) $bgcolor,
+    0 $width $bgcolor,
+    2*$width 0 $color,
+    -2*$width 0 $color,
+    0 (-2*$width) $color,
+    0 2*$width $color,
+    $width $width $color,
+    -$width $width $color,
+    $width (-$width) $color,
+    -$width (-$width) $color;
+}*/
+@mixin step2v2( $width, $color, $bgcolor ) {
+  box-shadow:
+      $width 0 $bgcolor,
+      -$width 0 $bgcolor,
+      0 (-$width) $bgcolor,
+      0 $width $bgcolor,
+      2*$width 0 $color,
+      -2*$width 0 $color,
+      0 (-2*$width) $color,
+      0 2*$width $color,
+      0 0 0 $width $color;
+  margin: 2*$width auto;
+}
+/*@mixin step3( $width, $color, $bgcolor ) {
+  box-shadow:
+    $width 0 $bgcolor,
+    -$width 0 $bgcolor,
+    0 (-$width) $bgcolor,
+    0 $width $bgcolor,
+    2*$width 0 $bgcolor,
+    -2*$width 0 $bgcolor,
+    0 (-2*$width) $bgcolor,
+    0 2*$width $bgcolor,
+    0 0 0 $width $bgcolor,
+    3*$width 0 $color,
+    -3*$width 0 $color,
+    0 3*$width $color,
+    0 (-3*$width) $color,
+    -2*$width (-$width) $color,
+    -$width (-2*$width) $color,
+    $width (-2*$width) $color,
+    2*$width (-$width) $color,
+    2*$width $width $color,
+    $width 2*$width $color,
+    -$width 2*$width $color,
+    -2*$width $width $color;
+}*/
+@mixin step3v2( $width, $color, $bgcolor ) {
+  box-shadow:
+      $width 0 $bgcolor,
+      -$width 0 $bgcolor,
+      0 (-$width) $bgcolor,
+      0 $width $bgcolor,
+      2*$width 0 $bgcolor,
+      -2*$width 0 $bgcolor,
+      0 (-2*$width) $bgcolor,
+      0 2*$width $bgcolor,
+      0 0 0 $width $bgcolor,
+      3*$width 0 $color,
+      -3*$width 0 $color,
+      0 3*$width $color,
+      0 (-3*$width) $color,
+      0 (-$width) 0 $width $color,
+      0 $width 0 $width $color,
+      $width 0 0 $width $color,
+      -$width 0 0 $width $color;
+  margin: 3*$width auto;
+}
+@mixin step4( $width, $color, $bgcolor ) {
+  box-shadow:
+      $width 0 $bgcolor,
+      -$width 0 $bgcolor,
+      0 (-$width) $bgcolor,
+      0 $width $bgcolor,
+      2*$width 0 $bgcolor,
+      -2*$width 0 $bgcolor,
+      0 (-2*$width) $bgcolor,
+      0 2*$width $bgcolor,
+      0 0 0 $width $bgcolor,
+      3*$width 0 $bgcolor,
+      -3*$width 0 $bgcolor,
+      0 3*$width $bgcolor,
+      0 (-3*$width) $bgcolor,
+      0 (-$width) 0 $width $bgcolor,
+      0 $width 0 $width $bgcolor,
+      $width 0 0 $width $bgcolor,
+      -$width 0 0 $width $bgcolor,
+      4*$width 0 $color,
+      -4*$width 0 $color,
+      0 (-4*$width) $color,
+      0 4*$width $color,
+      2*$width 0 0 $width $color,
+      -2*$width 0 0 $width $color,
+      0 2*$width 0 $width $color,
+      0 (-2*$width) 0 $width $color,
+      0 0 0 2*$width $color;
+  margin: 4*$width auto;
+}
+@mixin other( $width, $color, $bgcolor ) {
+  box-shadow:
+      4*$width 0 $bgcolor,
+      -4*$width 0 $bgcolor,
+      0 (-4*$width) $bgcolor,
+      0 4*$width $bgcolor,
+      $width 0 0 2*$width $bgcolor,
+      -$width 0 0 2*$width $bgcolor,
+      0 (-$width) 0 2*$width $bgcolor,
+      0 $width 0 2*$width $bgcolor,
+      5*$width 0 $color,
+      -5*$width 0 $color,
+      0 (-5*$width) $color,
+      0 5*$width $color,
+      0 0 0 3*$width $color,
+      0 2*$width 0 2*$width $color,
+      0 (-2*$width) 0 2*$width $color,
+      2*$width 0 0 2*$width $color,
+          (-2*$width) 0 0 2*$width $color;
+  margin: 5*$width auto;
+}
+.lvl1 {
+  @include other( 4px, orange, white );
 }

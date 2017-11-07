@@ -12,12 +12,13 @@ export default class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {input: "", trumped: "", displayInput: true};
+    this.state = {input: "", trumped: "", mode: "input"};
 
     this.url = 'http://localhost:3001/api/trumpthat';
 
     this.trumpify = this.trumpify.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.resetDisplay = this.resetDisplay.bind(this);
   }
 
   trumpify() {
@@ -26,7 +27,7 @@ export default class App extends React.Component {
       phrase: this.state.input
     })
       .then((res) => {
-        this.setState({trumped: res.data.message, displayInput: false});
+        this.setState({trumped: res.data.message, mode: "display"});
       })
       .catch((err) => {
         console.error(err);
@@ -37,36 +38,31 @@ export default class App extends React.Component {
     this.setState({ input: e.target.value });
   }
 
-  Display(props) {
-    if (displayInput) {
-      return         <InputBox
-        trumpify={this.trumpify}
-        input={this.state.input}
-        handleChange={this.handleChange}
-        display={this.state.displayInput}/>;
-    } else {
-      <TweetDisplay tweet={this.state.trumped} />
-    }
+  resetDisplay() {
+    this.setState({mode: "input", trumped: "", input: ""});
   }
 
   render() {
-    const displayInput = this.state.displayInput;
+    const mode = this.state.mode;
     let display = null;
 
-    if (displayInput) {
+    if (mode === 'input') {
       display = <InputBox
-        trumpify={this.trumpify}
-        input={this.state.input}
-        handleChange={this.handleChange}
-        display={this.state.displayInput}/>;
+                  trumpify={this.trumpify}
+                  input={this.state.input}
+                  handleChange={this.handleChange}
+                  mode={this.state.mode}/>;
     } else {
-      display = <TweetDisplay tweet={this.state.trumped} />;
+      display = <TweetDisplay
+                  tweet={this.state.trumped}
+                  mode={this.state.mode}
+                  reset={this.resetDisplay}/>;
     }
 
     return (
       <div style={{textAlign: 'center'}}>
         <h1>TRUMP THAT TWEET</h1>
-        <TrumpHead />
+        <TrumpHead mode={this.state.mode}/>
           {display}
       </div>
     )
