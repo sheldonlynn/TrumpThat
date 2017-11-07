@@ -4,7 +4,8 @@
 import React from 'react';
 import axios from 'axios';
 import InputBox from '../components/InputBox';
-const image = require('../public/images/trump.gif');
+import TrumpHead from '../components/TrumpHead';
+import TweetDisplay from '../components/TweetDisplay';
 import { Animate } from 'react-move';
 
 export default class App extends React.Component {
@@ -36,17 +37,37 @@ export default class App extends React.Component {
     this.setState({ input: e.target.value });
   }
 
+  Display(props) {
+    if (displayInput) {
+      return         <InputBox
+        trumpify={this.trumpify}
+        input={this.state.input}
+        handleChange={this.handleChange}
+        display={this.state.displayInput}/>;
+    } else {
+      <TweetDisplay tweet={this.state.trumped} />
+    }
+  }
+
   render() {
+    const displayInput = this.state.displayInput;
+    let display = null;
+
+    if (displayInput) {
+      display = <InputBox
+        trumpify={this.trumpify}
+        input={this.state.input}
+        handleChange={this.handleChange}
+        display={this.state.displayInput}/>;
+    } else {
+      display = <TweetDisplay tweet={this.state.trumped} />;
+    }
+
     return (
       <div style={{textAlign: 'center'}}>
         <h1>TRUMP THAT TWEET</h1>
-        <img src={image} id="trump-gif"/>
-        <InputBox
-          trumpify={this.trumpify}
-          input={this.state.input}
-          handleChange={this.handleChange}
-          display={this.state.displayInput}/>
-        { this.state.trumped }
+        <TrumpHead />
+          {display}
       </div>
     )
   }

@@ -1,30 +1,136 @@
+* {
+  box-sizing: content-box;
+}
+
 body {
-  background: orange;
-  font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif,
+  font-family: 'Lucida Sans Typewriter', 'Lucida Console', monaco, monospace;
+  color: #fff;
+  background: linear-gradient(-45deg, #002868, #002868, #BF0A30, #BF0A30);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
+  text-shadow: 0px 4px 13px rgba(0, 0, 0, 0.55);
+}
+
+.trump-tweet {
+  color: #fff;
+  font-size: 2em;
+  width: 50vw;
+  position: relative;
+}
+
+.tweet-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 4em;
   color: white;
+  position: fixed;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-#trump-gif {
-  //height: calc(100vh - 5em);
-  //width: auto
+.trump-head {
+  #trump-gif {
+    height: calc(100vh - 5em);
+    width: auto
+  }
 }
 
 .input-box {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
   visibility: visible;
-  width: 50%;
+  width: 35vw;
   display: flex;
   flex-direction: column;
   margin: auto auto;
   opacity: 1;
 
   transition: visibility 1s, opacity 1s;
+
+  textarea {
+    height: 15vh;
+    color: #fff;
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.55);
+    font-size: 1.5em;
+    background: rgba(255, 255, 255, 0.4);
+    line-height: 25px;
+    padding: 20px 30px;
+    outline: 0;
+    border: none;
+    resize: none;
+    outline: none;
+  }
+
+  .trump-button {
+    margin-top: 20px;
+  }
 }
 
 .hide {
   visibility: hidden;
   opacity: 0;
+}
+
+
+//*****************
+// GRADIENT BG
+//****************
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+.Typist .Cursor {
+  display: inline-block;
+
+  &--blinking {
+    opacity: 1;
+    animation: blink 1s linear infinite;
+    @keyframes blink {
+      0% { opacity:1; }
+      50% { opacity:0; }
+      100% { opacity:1; }
+    }
+  }
 }

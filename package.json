@@ -27,6 +27,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-move": "^2.6.0",
+    "react-typist": "^2.0.4",
     "requirejs": "^2.3.5",
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1",

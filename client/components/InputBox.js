@@ -14,12 +14,11 @@ export default class InputBox extends React.Component {
     return (
       <div className={"input-box " + (this.props.display ? 'show' : 'hide')}>
           <textarea
-            rows="5"
-            cols="40"
+            maxLength="120"
             value={this.props.input}
             onChange={this.props.handleChange}>
           </textarea>
-        <button onClick={this.props.trumpify}>Trumpify</button>
+        <button className="trump-button" onClick={this.props.trumpify}>Trumpify</button>
       </div>
     )
   }
