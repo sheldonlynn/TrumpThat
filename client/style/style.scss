@@ -4,6 +4,10 @@
   box-sizing: content-box;
 }
 
+//**********************
+// GENERAL
+//**********************
+
 body {
   font-family: 'Press start 2P', 'Lucida Sans Typewriter', 'Lucida Console', monaco, monospace;
   color: #fff;
@@ -16,29 +20,14 @@ body {
   overflow: hidden;
 }
 
-.tweet-display {
+h1 {
+  font-size: 3em;
+  color: white;
   position: fixed;
-  right: 6%;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  .trump-tweet {
-    color: #fff;
-    font-size: 2vw;
-    line-height: 1.5em;
-    max-height: 70vh;
-    overflow: scroll;
-    width: 50vw;
-    position: relative;
-    margin-bottom: 20px;
-  }
-}
-
-.hidden {
-  visibility: hidden;
-  opacity: 0;
+  top: 1%;
+  left: 50%;
+  z-index: 5;
+  transform: translateX(-50%);
 }
 
 .button {
@@ -51,23 +40,22 @@ body {
   transition: all 1s;
 }
 
-h1 {
-  font-size: 3em;
-  color: white;
-  position: fixed;
-  top: 1%;
-  left: 50%;
-  z-index: 5;
-  transform: translateX(-50%);
-}
+//**********************
+// TRUMP HEAD
+//**********************
 
 .trump-head {
   transition: all 2s;
+  transition-property: top, left, width, height;
   z-index: 0;
-  display: fixed;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
   #trump-gif {
     height: calc(100vh - 5em);
-    width: auto
+    width: auto;
+    transition: all 2s;
+    transition-property: top, left, width, height;
   }
 }
 
@@ -76,13 +64,46 @@ h1 {
   left: -8%;
   top: 50%;
   transform: translateY(-50%);
-  transition: all 2s;
   #trump-gif {
     height: auto;
     width: 60vw;
-    transition: all 2s;
   }
 }
+
+//**********************
+// DISPLAY TWEET
+//**********************
+
+.tweet-display {
+  position: fixed;
+  right: 6%;
+  top: 55%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .trump-tweet {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    color: #fff;
+    font-size: 2vw;
+    line-height: 1.5em;
+    max-height: 70vh;
+    width: 50vw;
+    overflow: scroll;
+    position: relative;
+    margin-bottom: 20px;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+//**********************
+// INPUT TWEET
+//**********************
 
 .input-box {
   position: fixed;
@@ -121,10 +142,62 @@ h1 {
   opacity: 0;
 }
 
+//**********************
+// MEDIA QUERIES
+//**********************
 
-//*****************
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 6vh;
+  }
+
+  .tweet-display {
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .trump-tweet {
+      width: auto;
+      font-size: 2vh;
+    }
+  }
+
+  .trump-head {
+    position: fixed;
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    #trump-gif {
+      height: 70vh;
+      width: auto
+    }
+  }
+
+  .trump-head.display {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    #trump-gif {
+      height: 200vh;
+      width: auto;
+    }
+  }
+
+  .input-box {
+    min-width: 70vw;
+    textarea {
+      font-size: 1.5vh;
+      line-height: 2.5vh;
+    }
+  }
+}
+
+//**********************
 // GRADIENT BG
-//****************
+//**********************
 
 @-webkit-keyframes Gradient {
   0% {
@@ -162,6 +235,10 @@ h1 {
   }
 }
 
+//**********************
+// TYPIST
+//**********************
+
 .Typist .Cursor {
   display: inline-block;
 
@@ -176,7 +253,9 @@ h1 {
   }
 }
 
-//************************************************
+//**********************
+// 8-BIT BUTTON
+//**********************
 
 @mixin step1( $width, $color ) {
   box-shadow:

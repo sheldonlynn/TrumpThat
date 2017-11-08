@@ -19,12 +19,13 @@ export default class App extends React.Component {
     this.url = 'http://165.227.22.2/api/trumpthat';
 
     this.trumpify = this.trumpify.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.resetDisplay = this.resetDisplay.bind(this);
   }
 
   trumpify() {
     console.log("shit is happening!");
+    if (this.state.input.length == 0) return;
     axios.post(this.url, {
       phrase: this.state.input
     })
@@ -36,7 +37,7 @@ export default class App extends React.Component {
       })
   }
 
-  handleChange(e) {
+  handleInputChange(e) {
     this.setState({ input: e.target.value });
   }
 
@@ -52,7 +53,7 @@ export default class App extends React.Component {
       display = <InputBox
                   trumpify={this.trumpify}
                   input={this.state.input}
-                  handleChange={this.handleChange}
+                  handleChange={this.handleInputChange}
                   mode={this.state.mode}/>;
     } else {
       display = <TweetDisplay
