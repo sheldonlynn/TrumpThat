@@ -167,9 +167,17 @@ function cleanText(str) {
   return str;
 }
 
+function endsPunct(str) {
+  return str.charAt(str.length - 1).match(/[.!?\\-]/);
+}
+
+function toLowerFirst(str) {
+  return str.charAt(0).toLowerCase() + str.slice(1, str.length);
+}
+
 module.exports = {
   trumpThat: function(phrase) {
-    if (phrase.length !== 0 && !phrase.charAt(phrase.length - 1).match(/[.!?\\-]/)) {
+    if (phrase.length !== 0 && !endsPunct(phrase)) {
       phrase = phrase + ".";
     }
 
@@ -221,17 +229,21 @@ module.exports = {
 
   append: function(phrase) {
     let random = getRandom(0,30);
+    let pre = _.sample(prePend);
+    let post = _.sample(postPend);
+
+    if (endsPunct(pre)) phrase = toLowerFirst(phrase);
 
     if (random % 3 === 0) {
-      return phrase = _.sample(prePend) + " " + phrase + " " + _.sample(postPend);
+      return phrase = pre + " " + phrase + " " + post;
     }
 
     if (random % 2 === 0) {
-      return phrase = phrase + " " + _.sample(postPend);
+      return phrase = phrase + " " + post;
     }
 
     if (random % 4 === 0) {
-      return phrase = _.sample(prePend) + " " + phrase;
+      return phrase = pre + " " + phrase;
     }
 
     return phrase;
