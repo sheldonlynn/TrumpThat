@@ -45,7 +45,7 @@ h1 {
 //**********************
 
 .trump-head {
-  transition: all 1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transition-property: top, left, width, height;
   z-index: 0;
   position: fixed;
@@ -54,7 +54,7 @@ h1 {
   #trump-gif {
     height: calc(100vh - 5em);
     width: auto;
-    transition: all 1s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
     transition-property: top, left, width, height;
   }
 }

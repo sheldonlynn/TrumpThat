@@ -181,11 +181,16 @@ module.exports = {
       phrase = phrase + ".";
     }
 
-    phrase = this.adjective(phrase);
-    phrase = this.adverb(phrase);
-    phrase = this.append(phrase);
+    let withAdj = this.adjective(phrase);
+    let noAdj = withAdj.length === phrase.length;
 
-    return applySentenceCase(nlp(phrase).all().out());
+    let withAdv = this.adverb(withAdj);
+    let noAdv = withAdv.length === withAdj.length;
+
+    let withAppend = this.append(withAdv, noAdj, noAdv);
+
+    return phrase;
+    return applySentenceCase(nlp(withAppend).all().out());
   },
 
   adjective: function(phrase) {
@@ -227,10 +232,15 @@ module.exports = {
     return phrase;
   },
 
-  append: function(phrase) {
+  append: function(phrase, noAdj, noAdv) {
     let random = getRandom(0,100);
     let pre = _.sample(prePend);
     let post = _.sample(postPend);
+
+    //no adj or adv so must pre + post
+    if (!noAdj && !noAdv) {
+      return phrase = pre + " " + phrase + " " + post;
+    }
 
     if (!endsPunct(pre)) phrase = toLowerFirst(phrase);
 

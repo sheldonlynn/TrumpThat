@@ -3,13 +3,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const parseTweet = require('./server/parseTweet');
+const Ddos = require('ddos');
 
 const app = express();
 const router = express.Router();
+const ddos = new Ddos({burst:3, limit:5});
 
 let port = process.env.API_PORT || 3001;
-
-const parseTweet = require('./server/parseTweet');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -38,6 +39,8 @@ router.route('/trumpthat')
   });
 
 app.use('/api', router);
+
+app.use(ddos.express);
 
 app.listen(port, () => {
   console.log(`api running on port ${port}`);

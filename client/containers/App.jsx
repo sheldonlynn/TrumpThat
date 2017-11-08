@@ -16,7 +16,7 @@ export default class App extends React.Component {
 
     this.url = process.env.NODE_ENV === 'production' ? 'http://165.227.22.2/api/trumpthat' : 'http://localhost:3001/api/trumpthat';
 
-    this.url = 'http://165.227.22.2/api/trumpthat';
+    // this.url = 'http://165.227.22.2/api/trumpthat';
 
     this.trumpify = this.trumpify.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -24,13 +24,15 @@ export default class App extends React.Component {
   }
 
   trumpify() {
-    console.log("shit is happening!");
-    if (this.state.input.length == 0) return;
+    if (this.state.input.length === 0) return;
+
     axios.post(this.url, {
       phrase: this.state.input
     })
       .then((res) => {
-        this.setState({trumped: res.data.message, mode: "display"});
+        console.log(res);
+        // if (res.message.trim().length !== 0)
+          this.setState({trumped: res.data.message, mode: "display"});
       })
       .catch((err) => {
         console.error(err);
