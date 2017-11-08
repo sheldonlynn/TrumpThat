@@ -58,7 +58,7 @@ const positiveAdj = [
   "Huge",
   "Hugely",
   "Bigly",
-  "Big league",
+  "Big League",
   "Great",
   "Beautiful",
   "Major",
@@ -228,11 +228,11 @@ module.exports = {
   },
 
   append: function(phrase) {
-    let random = getRandom(0,30);
+    let random = getRandom(0,100);
     let pre = _.sample(prePend);
     let post = _.sample(postPend);
 
-    if (endsPunct(pre)) phrase = toLowerFirst(phrase);
+    if (!endsPunct(pre)) phrase = toLowerFirst(phrase);
 
     if (random % 3 === 0) {
       return phrase = pre + " " + phrase + " " + post;
