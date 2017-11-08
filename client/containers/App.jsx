@@ -16,7 +16,7 @@ export default class App extends React.Component {
 
     this.url = process.env.NODE_ENV === 'production' ? 'http://165.227.22.2/api/trumpthat' : 'http://localhost:3001/api/trumpthat';
 
-    // this.url = 'http://165.227.22.2/api/trumpthat';
+    this.url = 'http://165.227.22.2/api/trumpthat';
 
     this.trumpify = this.trumpify.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
