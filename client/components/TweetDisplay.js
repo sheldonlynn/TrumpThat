@@ -18,7 +18,7 @@ export default class TweetDisplay extends React.Component {
       <div className={"tweet-display " + (this.props.mode === 'display' ? 'display' : '')}>
         <div className="trump-tweet">
           <Typist>
-            "{this.props.tweet}"
+            "{this.props.tweet.trim()}"
           </Typist>
         </div>
         <div className={this.state.className} onClick={this.props.reset}>AGAIN</div>

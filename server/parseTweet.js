@@ -21,12 +21,12 @@ const negAdj = [
   "Fake News",
   "Terrible",
   "Horrible",
-  "Low energy",
-  "Low stamina",
+  "Low Energy",
+  "Low Stamina",
   "Disgraceful",
   "Fake",
   "Vicious",
-  "Nasty woman",
+  "Nasty Woman",
   "Nasty",
   "Pathetic",
   "So-Called",
@@ -34,7 +34,22 @@ const negAdj = [
   "Cheater",
   "Degenerate",
   "Crazy",
-  "Covfefe"
+  "Covfefe",
+  "Lying",
+  "Worst Ever",
+  "Dummy",
+  "Easy",
+  "Rocketman",
+  "One-sided",
+  "Biased",
+  "Lying",
+  "Zero",
+  "Flunky",
+  "Lyin",
+  "Hostile",
+  "Dishonest",
+  "Failed",
+  "Russian Hoax"
 ];
 
 const positiveAdj = [
@@ -48,12 +63,17 @@ const positiveAdj = [
   "Beautiful",
   "Major",
   "Incredible",
+  "Positively",
+  "Smart",
+  "Talented"
 ];
 
 const prePend = [
   "I have great confidence that",
   "Believe me",
-  "I have be best people!",
+  "I have heard",
+  "Everyone says",
+  "I have the best people!",
   "I have the best words!",
   "Everyone knows",
   "People always say",
@@ -63,7 +83,15 @@ const prePend = [
   "It is tremendous that",
   "I've always said",
   "I am very smart.",
-  "Covfefe"
+  "Covfefe",
+  "@FoxAndFriends",
+  "The lying Mainstream Media says",
+  "Disastrous",
+  "The Lying Media",
+  "The Media won't tell you: ",
+  "The Biased Media",
+  "@IvankaTrump",
+  "Climate Change is a lie."
 ];
 
 const postPend = [
@@ -73,7 +101,7 @@ const postPend = [
   "No puppet, you're the puppet.",
   "Trump Russia - NO COLLUSION",
   "No Collusion!",
-  "NO COLLUSION",
+  "NO COLLUSION.",
   "Drain the Swamp!",
   "Election was rigged!",
   "I won the popular vote!",
@@ -81,6 +109,20 @@ const postPend = [
   "I went to an Ivy League college!",
   "Covfefe!",
   "Covfefe.",
+  "Rigged!",
+  "But Hillary!",
+  "Disaster!",
+  "Totally biased!",
+  "Really!",
+  "Russian Hoax!",
+  "Impeach!",
+  "Who's Tiffany? Never heard of her.",
+  "Important!",
+  "Working hard!",
+  "Great for America!",
+  "Coal country!",
+  "Rust belt!",
+  "JOBS! JOBS! JOBS!"
 ];
 
 const adverb = [
@@ -94,7 +136,12 @@ const adverb = [
   "nastily",
   "viciously",
   "pathetically",
-  "truly"
+  "truly",
+  "totally"
+];
+
+const hashtags = [
+
 ];
 
 function getRandom(min, max) {
@@ -122,6 +169,10 @@ function cleanText(str) {
 
 module.exports = {
   trumpThat: function(phrase) {
+    if (phrase.length !== 0 && !phrase.charAt(phrase.length - 1).match(/[.!?\\-]/)) {
+      phrase = phrase + ".";
+    }
+
     phrase = this.adjective(phrase);
     phrase = this.adverb(phrase);
     phrase = this.append(phrase);
