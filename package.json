@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "start-dev": "nf start -p 3000",
-    "build": "webpack --config webpack.prod.js & node server.js"
+    "build": "webpack --config webpack.prod.js & forever -m10 --minUptime 30s -- server.js"
   },
   "dependencies": {
     "axios": "^0.17.0",
@@ -19,6 +19,7 @@
     "express": "^4.16.2",
     "file-loader": "^1.1.5",
     "foreman": "^2.0.0",
+    "global": "^4.3.2",
     "html-webpack-plugin": "^2.30.1",
     "lodash": "^4.17.4",
     "marked": "^0.3.6",
