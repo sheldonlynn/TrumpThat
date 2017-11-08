@@ -25,15 +25,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  if (req.ip !== '165.227.22.2') { // Wrong IP address
-    res.status(401);
-    return res.send('Permission denied');
-  }
-
-  next();
-});
-
 router.get('/', (req, res) => {
   res.json({ message: 'API Initialized' });
 });
