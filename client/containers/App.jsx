@@ -75,7 +75,7 @@ export default class App extends React.Component {
                   reset={this.resetDisplay}/>;
     }
 
-     aboutModal = about ? <About /> : null;
+     aboutModal = about ? <About about={this.toggleAbout}/> : null;
 
     return (
       <div style={{textAlign: 'center'}}>

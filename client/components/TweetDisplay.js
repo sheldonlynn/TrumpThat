@@ -10,14 +10,15 @@ export default class TweetDisplay extends React.Component {
   componentWillMount() {
     setTimeout(() => {
       this.setState({className: "button display-button lvl1"});
-    }, (this.props.tweet.length * 70) + 500);
+    }, (this.props.tweet.length * 30) + 500);
   }
 
   render() {
     return (
       <div className={"tweet-display " + (this.props.mode === 'display' ? 'display' : '')}>
         <div className="trump-tweet">
-          <Typist>
+          <Typist
+            avgTypingDelay={30}>
             "{this.props.tweet.trim()}"
           </Typist>
         </div>

@@ -25,7 +25,7 @@ a {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 3.5vw;
   color: white;
   position: fixed;
   top: 1%;
@@ -35,7 +35,7 @@ h1 {
 }
 
 .button {
-  font-size: 1.4em;
+  font-size: 2vh;
   margin-top: 20px;
   color: black;
   background: white;
@@ -49,9 +49,9 @@ h1 {
 //**********************
 .nav {
   position: fixed;
-  top: 5px;
-  right: 5px;
-  font-size: 15px;
+  top: 1vh;
+  right: 1vh;
+  font-size: 2vh;
   height: 20px;
   a {
     color: white;
@@ -69,16 +69,24 @@ h1 {
 // ABOUT
 //**********************
 .about-dialog {
-  background: rgba(0, 0, 0, 0.5);
-  font-size: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  font-size: 2vh;
   text-align: left;
   padding: 10px 20px;
-  width: 400px;
+  width: 25vw;
   position: fixed;
-  top: 30px;
-  right: 5px;
+  top: 4vh;
+  right: 1vh;
+  z-index: 9;
   &__line {
-    margin: 15px 0;
+    margin: 2.5vh 0;
+    line-height: 3vh;
+  }
+  &__close {
+    float: right;
+    top: 0;
+    right: 0;
+    cursor: pointer;
   }
 }
 
@@ -89,7 +97,7 @@ h1 {
 .trump-head {
   transition: all 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transition-property: top, left, width, height;
-  z-index: 0;
+  z-index: -5;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -125,7 +133,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   .trump-tweet {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     padding: 20px;
     color: #fff;
     font-size: 2vw;
@@ -238,6 +246,22 @@ h1 {
     textarea {
       font-size: 1.5vh;
       line-height: 2.5vh;
+    }
+  }
+
+  .nav {
+    font-size: 2vh;
+  }
+
+  .about-dialog {
+    top: 30%;
+    left: 50%;
+    width: 70vw;
+    transform: translateX(-50%);
+    font-size: 2vh;
+    &__line {
+      line-height: 2.5vh;
+      margin: 2vh 0;
     }
   }
 }
