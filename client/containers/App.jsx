@@ -6,13 +6,15 @@ import axios from 'axios';
 import InputBox from '../components/InputBox';
 import TrumpHead from '../components/TrumpHead';
 import TweetDisplay from '../components/TweetDisplay';
-import { Animate } from 'react-move';
+import Navigation from '../components/Navigation';
+import About from '../components/About';
+
 
 export default class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {input: "", trumped: "", mode: "input"};
+    this.state = {input: "", trumped: "", mode: "input", about: false};
 
     this.url = process.env.NODE_ENV === 'production' ? 'http://165.227.22.2/api/trumpthat' : 'http://localhost:3001/api/trumpthat';
 
@@ -21,6 +23,7 @@ export default class App extends React.Component {
     this.trumpify = this.trumpify.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.resetDisplay = this.resetDisplay.bind(this);
+    this.toggleAbout = this.toggleAbout.bind(this);
   }
 
   trumpify() {
@@ -47,9 +50,17 @@ export default class App extends React.Component {
     this.setState({mode: "input", trumped: "", input: ""});
   }
 
+  toggleAbout() {
+    let ab = !this.state.about;
+    this.setState({about: ab});
+    console.log(this.state.about, "about");
+  }
+
   render() {
     const mode = this.state.mode;
+    const about = this.state.about;
     let display = null;
+    let aboutModal = null;
 
     if (mode === 'input') {
       display = <InputBox
@@ -64,11 +75,15 @@ export default class App extends React.Component {
                   reset={this.resetDisplay}/>;
     }
 
+     aboutModal = about ? <About /> : null;
+
     return (
       <div style={{textAlign: 'center'}}>
         <h1>TRUMP THAT TWEET</h1>
+        {aboutModal}
+        <Navigation about={this.toggleAbout}/>
         <TrumpHead mode={this.state.mode}/>
-          {display}
+        {display}
       </div>
     )
   }

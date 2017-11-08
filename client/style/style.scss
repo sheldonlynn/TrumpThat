@@ -20,6 +20,10 @@ body {
   overflow: hidden;
 }
 
+a {
+  color: white;
+}
+
 h1 {
   font-size: 3em;
   color: white;
@@ -38,6 +42,44 @@ h1 {
   text-shadow: none;
   cursor: pointer;
   transition: all 1s;
+}
+
+//**********************
+// NAVIGATION
+//**********************
+.nav {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  font-size: 15px;
+  height: 20px;
+  a {
+    color: white;
+    margin: 0 10px;
+  }
+}
+
+.span-link {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+//**********************
+// ABOUT
+//**********************
+.about-dialog {
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  text-align: left;
+  padding: 10px 20px;
+  width: 400px;
+  position: fixed;
+  top: 30px;
+  right: 5px;
+  &__line {
+    margin: 15px 0;
+  }
 }
 
 //**********************
@@ -398,4 +440,5 @@ h1 {
 }
 .lvl1 {
   @include other( 4px, orange, white );
+  cursor: pointer;
 }
