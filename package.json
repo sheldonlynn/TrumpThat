@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "start-dev": "nf start -p 3000",
-    "build": "webpack --config webpack.prod.js & forever -m10 --minUptime 30s -- server.js"
+    "build": "webpack --config webpack.prod.js & forever start -m10 --minUptime 30s -- server.js"
   },
   "dependencies": {
     "axios": "^0.17.0",
