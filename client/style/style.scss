@@ -16,7 +16,7 @@ body {
   -webkit-animation: Gradient 15s ease infinite;
   -moz-animation: Gradient 15s ease infinite;
   animation: Gradient 15s ease infinite;
-  text-shadow: 0px 4px 13px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 4px 13px rgba(0, 0, 0, 0.7);
   overflow: hidden;
 }
 
@@ -175,7 +175,7 @@ h1 {
     font-size: 1vw;
     height: 15vh;
     color: #fff;
-    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.55);
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.8);
     background: rgba(255, 255, 255, 0.4);
     line-height: 25px;
     padding: 20px 30px;
@@ -299,7 +299,7 @@ h1 {
 @media screen and (orientation: portrait) {
   .trump-head {
     #trump-gif {
-      width: 120vw
+      width: 150vw
     }
   }
 }
