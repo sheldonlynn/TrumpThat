@@ -18,7 +18,7 @@ export default class App extends React.Component {
 
     this.url = process.env.NODE_ENV === 'production' ? 'http://165.227.22.2/api/trumpthat' : 'http://localhost:3001/api/trumpthat';
 
-    this.url = 'http://165.227.22.2/api/trumpthat';
+    // this.url = 'http://165.227.22.2/api/trumpthat';
 
     this.trumpify = this.trumpify.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -75,7 +75,7 @@ export default class App extends React.Component {
 
   shareTweet() {
     let text = encodeURIComponent(this.state.trumped);
-    let shareUrl = 'https://twitter.com/intent/tweet?url=' + 'http://www.trumpthattweet.com' + '&text=' + text;
+    let shareUrl = 'https://twitter.com/intent/tweet?url=' + 'www.trumpthattweet.com' + '&text=' + text;
     let win = window.open(shareUrl, 'ShareOnTwitter', this.getWindowOptions());
     win.opener = null; // 2
   }

@@ -1,5 +1,5 @@
-const headAnimated = require('../public/images/trump.gif');
-const headStill = require('../public/images/trump-still.gif');
+const headAnimated = require('../../public/images/trump.gif');
+const headStill = require('../../public/images/trump-still.gif');
 import React from 'react';
 
 export default class TrumpHead extends React.Component {
