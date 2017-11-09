@@ -122,7 +122,10 @@ const postPend = [
   "Great for America!",
   "Coal country!",
   "Rust belt!",
-  "JOBS! JOBS! JOBS!"
+  "JOBS! JOBS! JOBS!",
+  "Total loser!",
+  "Total chaos!",
+  "American Carnage!"
 ];
 
 const adverb = [

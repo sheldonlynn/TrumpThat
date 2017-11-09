@@ -18,7 +18,8 @@ export default class TweetDisplay extends React.Component {
       <div className={"tweet-display " + (this.props.mode === 'display' ? 'display' : '')}>
         <div className="trump-tweet">
           <Typist
-            avgTypingDelay={30}>
+            avgTypingDelay={30}
+            >
             "{this.props.tweet.trim()}"
           </Typist>
         </div>
