@@ -35,7 +35,7 @@ h1 {
 }
 
 .button {
-  font-size: 2vw;
+  font-size: 1.5vw;
   margin-top: 20px;
   color: black;
   background: white;
@@ -206,6 +206,10 @@ h1 {
     font-size: 6vw;
   }
 
+  .button {
+    font-size: 2.5vw;
+  }
+
   .trump-head {
     top: 8%;
     left: 50%;
@@ -217,7 +221,7 @@ h1 {
   }
 
   .nav {
-    font-size: 2vw;
+    font-size: 2.5vw;
   }
 
   .trump-head.display {
@@ -225,13 +229,9 @@ h1 {
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     #trump-gif {
-      height: 200vh;
-      width: auto;
+      width: 150vw;
+      height: auto;
     }
-  }
-
-  .about-dialog {
-    font-size: 2vw;
   }
 
   .tweet-display {
@@ -252,10 +252,10 @@ h1 {
     left: 50%;
     width: 70vw;
     transform: translateX(-50%);
-    font-size: 2vw;
+    font-size: 2.5vw;
     &__line {
-      line-height: 2.5vw;
-      margin: 2vw 0;
+      line-height: 3vw;
+      margin: 2.5vw 0;
     }
   }
 
@@ -289,19 +289,17 @@ h1 {
     }
   }
 
-  .trump-head {
-    top: 8%;
-    left: 50%;
-    transform: translateX(-50%);
-    #trump-gif {
-      height: auto;
-      width: 100vw
-    }
-  }
-
   .input-box {
     textarea {
       font-size: 3vw;
+    }
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .trump-head {
+    #trump-gif {
+      width: 120vw
     }
   }
 }
