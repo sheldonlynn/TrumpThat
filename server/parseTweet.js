@@ -49,7 +49,13 @@ const negAdj = [
   "Hostile",
   "Dishonest",
   "Failed",
-  "Russian Hoax"
+  "Russian Hoax",
+  "Dumb as a Rock",
+  "Goofball",
+  "Disgraceful",
+  "Overrated",
+  "Desperate",
+  "Total Loser"
 ];
 
 const positiveAdj = [
@@ -91,7 +97,9 @@ const prePend = [
   "The Media won't tell you: ",
   "The Biased Media",
   "@IvankaTrump",
-  "Climate Change is a lie."
+  "Climate Change is a lie.",
+  "In the past",
+  "These are the facts:"
 ];
 
 const postPend = [
@@ -125,7 +133,15 @@ const postPend = [
   "JOBS! JOBS! JOBS!",
   "Total loser!",
   "Total chaos!",
-  "American Carnage!"
+  "American Carnage!",
+  "Should be ashamed!",
+  "What is taking so long?",
+  "Investigate!",
+  "Never had a chance!",
+  "I will sue.",
+  "I will be suing!",
+  "Apology needed!",
+  "A lot of problems!"
 ];
 
 const adverb = [
@@ -140,11 +156,13 @@ const adverb = [
   "viciously",
   "pathetically",
   "truly",
-  "totally"
-];
-
-const hashtags = [
-
+  "totally",
+  "desperately",
+  "definitely",
+  "completely",
+  "very",
+  "really",
+  "lazily"
 ];
 
 function getRandom(min, max) {
