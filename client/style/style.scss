@@ -35,7 +35,7 @@ h1 {
 }
 
 .button {
-  font-size: 2vh;
+  font-size: 2vw;
   margin-top: 20px;
   color: black;
   background: white;
@@ -49,8 +49,8 @@ h1 {
 //**********************
 .nav {
   position: fixed;
-  top: 1vh;
-  right: 1vh;
+  top: 1vw;
+  right: 1vw;
   font-size: 2vh;
   height: 20px;
   a {
@@ -172,7 +172,7 @@ h1 {
 
   textarea {
     font-family: 'Press start 2P', 'Lucida Sans Typewriter', 'Lucida Console', monaco, monospace;
-    font-size: 2vh;
+    font-size: 1vw;
     height: 15vh;
     color: #fff;
     text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.55);
@@ -203,32 +203,21 @@ h1 {
   }
 
   h1 {
-    font-size: 6vh;
-  }
-
-  .tweet-display {
-    top: 40%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    .trump-tweet {
-      width: auto;
-      font-size: 2vh;
-    }
+    font-size: 6vw;
   }
 
   .trump-head {
-    position: fixed;
     top: 8%;
     left: 50%;
     transform: translateX(-50%);
     #trump-gif {
-      height: 70vh;
-      width: auto
+      height: auto;
+      width: 100vw
     }
+  }
+
+  .nav {
+    font-size: 2vw;
   }
 
   .trump-head.display {
@@ -241,27 +230,78 @@ h1 {
     }
   }
 
-  .input-box {
-    min-width: 70vw;
-    textarea {
-      font-size: 1.5vh;
-      line-height: 2.5vh;
+  .about-dialog {
+    font-size: 2vw;
+  }
+
+  .tweet-display {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .trump-tweet {
+      width: auto;
+      font-size: 2vw;
     }
   }
-
-  .nav {
-    font-size: 2vh;
-  }
-
   .about-dialog {
     top: 30%;
     left: 50%;
     width: 70vw;
     transform: translateX(-50%);
-    font-size: 2vh;
+    font-size: 2vw;
     &__line {
-      line-height: 2.5vh;
-      margin: 2vh 0;
+      line-height: 2.5vw;
+      margin: 2vw 0;
+    }
+  }
+
+  .input-box {
+    min-width: 70vw;
+    textarea {
+      font-size: 1.5vw;
+      line-height: 2.5vw;
+    }
+  }
+}
+
+@media (min-width: 200px) and (max-width: 600px) {
+  body {
+    background-size: 100% 100%;
+  }
+
+  h1 {
+    top: 3vw;
+  }
+
+  .nav {
+    font-size: 3vw;
+  }
+
+  .about-dialog {
+    font-size: 3vw;
+    &__line {
+      line-height: 3.5vw;
+      margin: 3vw 0;
+    }
+  }
+
+  .trump-head {
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    #trump-gif {
+      height: auto;
+      width: 100vw
+    }
+  }
+
+  .input-box {
+    textarea {
+      font-size: 3vw;
     }
   }
 }
