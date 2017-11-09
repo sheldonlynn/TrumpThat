@@ -99,7 +99,8 @@ const prePend = [
   "@IvankaTrump",
   "Climate Change is a lie.",
   "In the past",
-  "These are the facts:"
+  "These are the facts:",
+  "I have the solution:"
 ];
 
 const postPend = [
@@ -141,7 +142,10 @@ const postPend = [
   "I will sue.",
   "I will be suing!",
   "Apology needed!",
-  "A lot of problems!"
+  "A lot of problems!",
+  "I alone can fix this!",
+  "#ACAsucks",
+  "#healthcare"
 ];
 
 const adverb = [
@@ -174,7 +178,7 @@ function spliceString(a, b, position) {
 }
 
 function applySentenceCase(str) {
-  return str.replace(/.+?[\.\?\!](\s|$)/g, function (txt) {
+  return str.replace(/.+?[\.\?\!\:](\s|$)/g, function (txt) {
     return txt.charAt(0).toUpperCase() + txt.substr(1);
   });
 }
