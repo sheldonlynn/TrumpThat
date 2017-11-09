@@ -29,6 +29,7 @@
     "path": "^0.12.7",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-favicon": "^0.0.9",
     "react-typist": "^2.0.4",
     "requirejs": "^2.3.5",
     "url-loader": "^0.6.2",
