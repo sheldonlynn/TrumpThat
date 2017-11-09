@@ -24,6 +24,8 @@ export default class App extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.resetDisplay = this.resetDisplay.bind(this);
     this.toggleAbout = this.toggleAbout.bind(this);
+    this.shareTweet = this.shareTweet.bind(this);
+    this.getWindowOptions = this.getWindowOptions.bind(this);
   }
 
   trumpify() {
@@ -56,6 +58,28 @@ export default class App extends React.Component {
     console.log(this.state.about, "about");
   }
 
+  getWindowOptions() {
+    var width = 500;
+    var height = 350;
+    var left = (window.innerWidth / 2) - (width / 2);
+    var top = (window.innerHeight / 2) - (height / 2);
+
+    return [
+      'resizable,scrollbars,status',
+      'height=' + height,
+      'width=' + width,
+      'left=' + left,
+      'top=' + top,
+    ].join();
+  }
+
+  shareTweet() {
+    let text = encodeURIComponent(this.state.trumped);
+    let shareUrl = 'https://twitter.com/intent/tweet?url=' + 'http://www.trumpthattweet.com' + '&text=' + text;
+    let win = window.open(shareUrl, 'ShareOnTwitter', this.getWindowOptions());
+    win.opener = null; // 2
+  }
+
   render() {
     const mode = this.state.mode;
     const about = this.state.about;
@@ -72,7 +96,8 @@ export default class App extends React.Component {
       display = <TweetDisplay
                   tweet={this.state.trumped}
                   mode={this.state.mode}
-                  reset={this.resetDisplay}/>;
+                  reset={this.resetDisplay}
+                  shareTweet={this.shareTweet}/>;
     }
 
      aboutModal = about ? <About about={this.toggleAbout}/> : null;

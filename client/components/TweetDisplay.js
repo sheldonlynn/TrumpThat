@@ -5,6 +5,13 @@ export default class TweetDisplay extends React.Component {
   constructor(props) {
     super(props);
     this.state = {className: "button display-button lvl1 hidden"};
+    this.cursorProps = {
+      show: true,
+      blink: true,
+      element: '|',
+      hideWhenDone: true,
+      hideWhenDoneDelay: 0
+    }
   }
 
   componentWillMount() {
@@ -19,11 +26,15 @@ export default class TweetDisplay extends React.Component {
         <div className="trump-tweet">
           <Typist
             avgTypingDelay={30}
+            cursor={this.cursorProps}
             >
             "{this.props.tweet.trim()}"
           </Typist>
         </div>
-        <div className={this.state.className} onClick={this.props.reset}>AGAIN</div>
+        <div className="display-buttons">
+          <div className={this.state.className} onClick={this.props.shareTweet}>TWEET</div>
+          <div className={this.state.className} onClick={this.props.reset}>AGAIN</div>
+        </div>
       </div>
     )
   }
