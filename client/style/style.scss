@@ -81,6 +81,9 @@ h1 {
   &__line {
     margin: 2.5vh 0;
     line-height: 3vh;
+    &--small {
+      font-size: 0.7em;
+    }
   }
   &__close {
     float: right;
