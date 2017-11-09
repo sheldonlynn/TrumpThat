@@ -27,15 +27,15 @@ export default class App extends React.Component {
   }
 
   trumpify() {
-    if (this.state.input.length === 0) return;
+    if (this.state.input.trim().length === 0) return;
 
     axios.post(this.url, {
       phrase: this.state.input
     })
       .then((res) => {
-        console.log(res);
-        // if (res.message.trim().length !== 0)
-          this.setState({trumped: res.data.message, mode: "display"});
+        console.log(res.data.message);
+        if (res.data.message.trim().length !== 0)
+          this.setState({trumped: res.data.message, mode: "display", about: false});
       })
       .catch((err) => {
         console.error(err);
