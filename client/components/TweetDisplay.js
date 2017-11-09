@@ -38,6 +38,5 @@ export default class TweetDisplay extends React.Component {
       </div>
     )
   }
-
-
 }
+

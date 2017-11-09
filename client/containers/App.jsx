@@ -78,7 +78,7 @@ export default class App extends React.Component {
 
   shareTweet() {
     let text = encodeURIComponent(this.state.trumped);
-    let shareUrl = 'https://twitter.com/intent/tweet?url=' + 'www.trumpthattweet.com' + '&text=' + text;
+    let shareUrl = 'https://twitter.com/intent/tweet?url=' + 'http://www.trumpthattweet.com' + '&text=' + text;
     let win = window.open(shareUrl, 'ShareOnTwitter', this.getWindowOptions());
     win.opener = null; // 2
   }

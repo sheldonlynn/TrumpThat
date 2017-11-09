@@ -1,9 +1,5 @@
 import React from 'react';
 
-const inputStyle = {
-
-}
-
 export default class InputBox extends React.Component {
   constructor(props) {
     super(props);
