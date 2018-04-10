@@ -221,6 +221,8 @@ module.exports = {
     //parse phrase
     let input = nlp(phrase);
 
+    console.log("adjective");
+
     //get people and nouns
     let people = input.people();
     let nouns = input.nouns();
