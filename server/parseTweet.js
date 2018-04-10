@@ -214,7 +214,6 @@ module.exports = {
 
     let withAppend = this.append(withAdv, noAdj, noAdv);
 
-    return phrase;
     return applySentenceCase(nlp(withAppend).all().out());
   },
 
